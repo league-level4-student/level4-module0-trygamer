@@ -13,6 +13,8 @@ public class ColorArrayDisplayer {
 	public static void displayColorsAsImage(Color[][] colors) {
 		JFrame window = new JFrame();
 		JLabel label = new JLabel();
+		System.out.println(colors.length);
+		System.out.println(colors[0].length);
 		BufferedImage image = new BufferedImage(colors.length, colors[0].length, BufferedImage.TYPE_INT_RGB);
 		for(int i = 0; i < colors.length; i++) {
 			for(int j = 0; j < colors[0].length; j++) {
@@ -26,4 +28,5 @@ public class ColorArrayDisplayer {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);	
 	}
+	
 }
