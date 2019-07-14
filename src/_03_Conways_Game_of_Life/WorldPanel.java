@@ -31,24 +31,55 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	
 		//2. Calculate the cell size.
 		
-		//3. Initialize the cell array to the appropriate size.
+		cellSize= h/cellsPerRow;
 		
+		
+		//3. Initialize the cell array to the appropriate size.
+		c= new Cell [cellsPerRow][cellsPerRow];
+		
+		for(int i =0;i<c.length;i++) {
+			for(int j=0;j<c[j].length;j++) {
+				
+				c[i][j] = new Cell(j*cellSize, i*cellSize, cellSize);
+			}
+			
+		}
 		//3. Iterate through the array and initialize each cell.
 		//   Don't forget to consider the cell's dimensions when 
 		//   passing in the location.
+	
+		
 		
 	}
 	
 	public void randomizeCells() {
 		//4. Iterate through each cell and randomly set each
 		//   cell's isAlive memeber to true of false
+		Random r = new Random();
+		
+		for(int i=0; i<c.length;i++) {
+			for(int j=0; j<c.length;j++) {
+				
+			c[i][j].isAlive=r.nextBoolean();
+				
+			}
+			
+		}
+		
+		
 		
 		repaint();
 	}
 	
 	public void clearCells() {
 		//5. Iterate through the cells and set them all to dead.
-		
+		for(int i=0; i<c.length;i++) {
+			for(int j=0; j<c.length;j++) {
+			
+				c[i][j].isAlive= false;	
+				
+			}
+			}
 		repaint();
 	}
 	
@@ -67,7 +98,13 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	@Override
 	public void paintComponent(Graphics g) {
 		//6. Iterate through the cells and draw them all
-		
+		for(int i=0; i<c.length;i++) {
+			for(int j=0; j<c.length;j++) {
+			
+				c[i][j].draw(g);
+				
+			}
+			}
 		
 		
 		// draws grid
@@ -80,21 +117,33 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		//7. iterate through cells and fill in the livingNeighbors array
 		// . using the getLivingNeighbors method.
 		int[][] livingNeighbors = new int[cellsPerRow][cellsPerRow];
+		for(int i=0; i<c.length;i++) {
+			for(int j=0; j<c.length;j++) {
+				getLivingNeighbors(i, j);
+			
+		
 		
 		//8. check if each cell should live or die
 	
+		if(c[i][j].isAlive=true) {
+			
+			
+		}
 		
-		
-		
-		repaint();
-	}
+			}
+		}
 	
+		repaint();
+	
+	}
 	//9. Complete the method.
 	//   It returns an int of 8 or less based on how many
 	//   living neighbors there are of the 
 	//   cell identified by x and y
 	public int getLivingNeighbors(int x, int y){
-		return 0;
+		
+		int returner = 0;
+		return returner;
 	}
 
 	@Override
