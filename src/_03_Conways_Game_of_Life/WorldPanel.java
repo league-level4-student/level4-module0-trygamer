@@ -26,7 +26,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	public WorldPanel(int w, int h, int cpr) {
 		setPreferredSize(new Dimension(w, h));
 		addMouseListener(this);
-		timer = new Timer(500, this);
+		timer = new Timer(1000, this);
 		this.cellsPerRow = cpr;
 	
 		//2. Calculate the cell size.
@@ -123,13 +123,13 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 				
 				
 				
-				int num =livingNeighbors[i][j]=getLivingNeighbors(i,j);
+				livingNeighbors[i][j]=getLivingNeighbors(i,j);
 			
 		
 		
 		//8. check if each cell should live or die
 	
-				c[i][j].liveOrDie(num);
+				c[i][j].liveOrDie(getLivingNeighbors(i,j));
 		
 		
 			}
@@ -143,51 +143,27 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	//   living neighbors there are of the 
 	//   cell identified by x and y
 	public int getLivingNeighbors(int x, int y){
-		int lived =0;
+		int lived=0;
 		
+		for(int i=x-1;i<x+1;i++) {
+			for(int j =y-1;j<y+1;j++) {
+				if(i>-1&&j>-1&&i<50&&j<50&&c[i][j].isAlive) {
+					System.out.println("lived");
+					lived ++;
+				}
+				
+				
+			}
+			
+		}
 		
-		if(x+1<=50&&y-1>0&&y+1<50&&x-1>0) {
-		
-		if( c[x-1][y].isAlive) {
-			lived =+1;
-			
-		}
-		if(c[x-1][y-1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x-1][y+1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x+1][y].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x+1][y-1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x+1][y+1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x][y+1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x][y-1].isAlive) {
-			 lived =+1;
-			
-		}
-		if(c[x+1][y].isAlive) {
-			 lived =+1;
-			
-		}
-		}
-		return lived ;
-		
+		//if(x+1<50&&y-1>0&&y+1<50&&x-1>-1) {
+		System.out.println(lived);
+	
+		return lived;
 	}
+		
+	//}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -215,14 +191,14 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		System.out.println(e.getY());
 		
 		
-		//if(c[e.getX()][e.getY()].isAlive) {
+		if(c[e.getY()/cellSize][e.getX()/cellSize].isAlive) {
 			
-		//	c[e.getX()][e.getY()].isAlive =false;
-	//	}
+			c[e.getY()/cellSize][e.getX()/cellSize].isAlive =false;
+		}
 		
-	//	if(!c[e.getX()][e.getY()].isAlive) {
-	//		c[e.getX()][e.getY()].isAlive =true;
-	//	}
+		else if(!c[e.getY()/cellSize][e.getX()/cellSize].isAlive) {
+			c[e.getY()/cellSize][e.getX()/cellSize].isAlive =true;
+		}
 		
 		repaint();
 	}

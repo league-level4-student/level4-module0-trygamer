@@ -37,7 +37,7 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		//setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		paintComponent(null);
+		
 	
 		window = new JFrame("Conway's Game Of Life");
 		window.add(this);

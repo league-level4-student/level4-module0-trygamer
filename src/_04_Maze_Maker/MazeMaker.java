@@ -56,6 +56,7 @@ public class MazeMaker {
 
 		// D. if all neighbors are visited
 		else {
+			
 			// D1. if the stack is not empty
 			if (!uncheckedCells.empty()) {
 
@@ -75,7 +76,7 @@ public class MazeMaker {
 	// This method will check if c1 and c2 are adjacent.
 	// If they are, the walls between them are removed.
 	private static void removeWalls(Cell c1, Cell c2) {
-
+System.out.println("remove walls");
 		if (c1.getY() == c2.getY()) {
 
 			if (c1.getX() == c2.getX() + 1) {
@@ -116,26 +117,26 @@ public class MazeMaker {
 	// to the ArrayList
 	private static ArrayList<Cell> getUnvisitedNeighbors(Cell c) {
 		ArrayList<Cell> cellular = new ArrayList<Cell>();
-
-		if (c.hasEastWall()) {
+System.out.println("getUnvisitedNeighbors");
+	//	if (c.hasEastWall()) {
 
 			if (c.getX() + 1 < 5 && !maze.c[c.getY()][c.getX() + 1].hasBeenVisited()) {
-
+System.out.println("has been Alive");
 				cellular.add(maze.c[c.getY()][c.getX() + 1]);
 
 			}
-		}
+	//	}
 
-		if (c.hasNorthWall()) {
+	//	if (c.hasNorthWall()) {
 			if (c.getY() - 1 > -1 && !maze.c[c.getY() - 1][c.getX()].hasBeenVisited()) {
 
 				cellular.add(maze.c[c.getY() - 1][c.getX()]);
 
 			}
 
-		}
+	//	}
 
-		if (c.hasSouthWall()) {
+		//if (c.hasSouthWall()) {
 
 			if (c.getY() + 1 < 5 && !maze.c[c.getY() + 1][c.getX()].hasBeenVisited()) {
 
@@ -143,8 +144,8 @@ public class MazeMaker {
 
 			}
 
-		}
-		if (c.hasWestWall()) {
+	//	}
+	//	if (c.hasWestWall()) {
 
 			if (c.getX() - 1 > -1 && !maze.c[c.getY()][c.getX() - 1].hasBeenVisited()) {
 
@@ -152,7 +153,7 @@ public class MazeMaker {
 
 			}
 
-		}
+	//	}
 
 		return cellular;
 	}
