@@ -145,10 +145,10 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	public int getLivingNeighbors(int x, int y){
 		int lived=0;
 		
-		for(int i=x-1;i<x+1;i++) {
-			for(int j =y-1;j<y+1;j++) {
+		for(int i=x-1;i<=x+1;i++) {
+			for(int j =y-1;j<=y+1;j++) {
 				if(i>-1&&j>-1&&i<50&&j<50&&c[i][j].isAlive) {
-					System.out.println("lived");
+				//	System.out.println("lived");
 					lived ++;
 				}
 				

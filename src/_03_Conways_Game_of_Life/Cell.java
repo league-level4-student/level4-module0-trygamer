@@ -46,6 +46,12 @@ public class Cell implements Drawable {
 			}
 
 		}
+		if (!isAlive) {
+			if (numNeighbors== 2) {
+        isAlive=true;
+			}
+
+		}
 	}
 
 	public int getX() {
