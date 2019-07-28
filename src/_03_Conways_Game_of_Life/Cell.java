@@ -28,7 +28,7 @@ public class Cell implements Drawable {
 	 * neighbours becomes a live cell, as if by reproduction. (source: Wikipedia)
 	 */
 	public void liveOrDie(int numNeighbors) {
-
+	
 		if (isAlive) {
 			if (numNeighbors < 2) {
 				isAlive = false;
@@ -40,19 +40,19 @@ public class Cell implements Drawable {
 
 			}
 		}
-		if (!isAlive) {
+			
+		
+		else if (!isAlive) {
 			if (numNeighbors== 3) {
         isAlive=true;
 			}
 
 		}
-		if (!isAlive) {
-			if (numNeighbors== 2) {
-        isAlive=true;
+		
 			}
+		
+		
 
-		}
-	}
 
 	public int getX() {
 		return x;

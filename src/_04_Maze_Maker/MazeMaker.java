@@ -120,6 +120,13 @@ System.out.println("remove walls");
 System.out.println("getUnvisitedNeighbors");
 	//	if (c.hasEastWall()) {
 
+for(int i = c.getX()-1; i< c.getX()+2;i++) {
+	for(int j = c.getY()-1; j< c.getY()+2;j++) {
+		
+	}
+	
+}
+
 			if (c.getX() + 1 < 5 && !maze.c[c.getY()][c.getX() + 1].hasBeenVisited()) {
 System.out.println("has been Alive");
 				cellular.add(maze.c[c.getY()][c.getX() + 1]);
