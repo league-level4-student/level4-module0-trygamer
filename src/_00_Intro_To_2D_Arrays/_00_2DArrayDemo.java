@@ -23,6 +23,7 @@ public class _00_2DArrayDemo {
 		
 		
 		// Iterating through a 2D array usually involves 2 for loops like this:
+
 		for(int i = 0; i < newArray2d.length; i++) {
 			for(int j = 0; j < newArray2d[i].length; j++) {
 				System.out.print(newArray2d[i][j]); //printing the elements
